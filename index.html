@@ -12,6 +12,281 @@
     <link rel="stylesheet" href="./css/style.css" />
     <title>Rutas</title>
   </head>
+  <div class="menu">
+    <h1>Gestor de Rutas</h1>
+  </div>
+
+  <div class="container">
+    <!-- ---------------------rutas--------------------------- -->
+    <div class="container_BtnNewRoute mt-4">
+      <!-- Button trigger modal rutas-->
+      <button
+        class="btn btn-success"
+        type="button"
+        id="new_Route"
+        data-bs-toggle="modal"
+        data-bs-target="#newRouteModal"
+      >
+        Nueva Ruta <i class="fa-solid fa-plus" style="color: #ffffff"></i>
+      </button>
+      <!-- Modal rutas -->
+      <div
+        class="modal fade"
+        id="newRouteModal"
+        tabindex="-1"
+        aria-labelledby="newRouteModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="newRouteModalLabel">
+                Agregar una Ruta
+              </h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <form class="form-control form_Route border-0" id="form_Route">
+                <div class="mb-3">
+                  <label for="field_NameRoute" class="form-label"
+                    >Nombre de la Ruta</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="field_NameRoute"
+                    placeholder=""
+                  />
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Cerrar
+              </button>
+              <button type="button" class="btn btn-primary" id="btn_AddRoute">
+                Agregar Ruta
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- modal actualizar rutas -->
+      <div
+        class="modal fade"
+        id="updateRouteModal"
+        tabindex="-1"
+        aria-labelledby="updateRouteModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="updateRouteModalLabel">
+                actualizar una Ruta
+              </h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <form class="form-control form_Route border-0" id="form_Route">
+                <div class="mb-3">
+                  <label for="field_UpdateNameRoute" class="form-label"
+                    >Nombre de la Ruta</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="field_UpdateNameRoute"
+                    placeholder=""
+                  />
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Cerrar
+              </button>
+              <button
+                type="button"
+                class="btn btn-primary"
+                id="btn_UpdateRoute"
+              >
+                actualizar Ruta
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="table-responsive routes_Container mt-3">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Nombre Ruta</th>
+            <th scope="col">Acciones</th>
+          </tr>
+        </thead>
+        <tbody id="tableBody_Routes"></tbody>
+      </table>
+    </div>
+
+    <!-- ---------------------puntos--------------------------- -->
+    <div class="points d-none" id="points">
+      <div class="btnNewPoint mt-4">
+        <!-- boton modal puntos -->
+        <button
+          class="btn btn-success"
+          type="button"
+          id="new_Point"
+          data-bs-toggle="modal"
+          data-bs-target="#newPointModal"
+        >
+          Nuevo Punto <i class="fa-solid fa-plus" style="color: #ffffff"></i>
+        </button>
+        <!-- modal puntos -->
+        <div
+          class="modal fade"
+          id="newPointModal"
+          tabindex="-1"
+          aria-labelledby="newPointModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="newPointModalLabel">
+                  Agregar Punto
+                </h5>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div class="modal-body">
+                <form class="form-control form_Point border-0" id="form_Route">
+                  <div class="mb-3">
+                    <label for="field_NamePoint" class="form-label"
+                      >Nombre del Punto</label
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="field_NamePoint"
+                      placeholder=""
+                    />
+                  </div>
+                </form>
+              </div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-bs-dismiss="modal"
+                >
+                  Cerrar
+                </button>
+                <button type="button" class="btn btn-primary" id="btn_AddPoint">
+                  Agregar Punto
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- modal modificar puntos -->
+        <div
+          class="modal fade"
+          id="updatePointModal"
+          tabindex="-1"
+          aria-labelledby="updatePointModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="updatePointModalLabel">
+                  Actualizar Punto
+                </h5>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div class="modal-body">
+                <form class="form-control form_Point border-0" id="form_Route">
+                  <div class="mb-3">
+                    <label for="field_updateNamePoint" class="form-label"
+                      >Nombre del Punto</label
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="field_updateNamePoint"
+                      placeholder=""
+                    />
+                  </div>
+                </form>
+              </div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-bs-dismiss="modal"
+                >
+                  Cerrar
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-primary"
+                  id="btn_UpdatePoint"
+                >
+                  Modificar Punto
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- tabla puntos -->
+      <div class="table-responsive points_Container mt-3">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">Nombre del Punto</th>
+              <th scope="col">Acciones</th>
+            </tr>
+          </thead>
+          <tbody id="tableBody_Points"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
   <body>
     <script
       src="https://kit.fontawesome.com/3aa35500f9.js"
